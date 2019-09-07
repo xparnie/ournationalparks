@@ -25,7 +25,7 @@ class HomePage extends React.Component {
                 {collections.filter((collection) => collection.title === 'National Parks').map(({ id, ...otherCollectionProps }) => (
                     <Carousel key={id} {...otherCollectionProps} />
                 ))}
-                {collections.filter((collection) => collection.title === 'Other').map(({ id, ...otherCollectionProps }) => (
+                {collections.filter((collection) => collection.title === 'Alaska').map(({ id, ...otherCollectionProps }) => (
                     <Carousel key={id} {...otherCollectionProps} />
                 ))}
             </div>

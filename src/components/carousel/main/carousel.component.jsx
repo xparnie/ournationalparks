@@ -10,9 +10,7 @@ import Arrow from '../arrows/arrows.component'
 class Carousel extends React.Component {
     constructor(props) {
         super(props)
-
-        console.log(props)
-
+        
         this.state = {
             currentImageIndex: 0
         }
@@ -22,10 +20,10 @@ class Carousel extends React.Component {
     }
 
     previousSlide() {
-        const lastIndex = this.props.items.length - 1
+        const previousIndex = this.props.items.length - 1
         const { currentImageIndex } = this.state
-        const shouldResetIndex = currentImageIndex === 0
-        const index = shouldResetIndex ? lastIndex : currentImageIndex - 1
+        const resetIndex = currentImageIndex === 0
+        const index = resetIndex ? previousIndex : currentImageIndex - 1
 
         this.setState({
             currentImageIndex: index
@@ -33,10 +31,10 @@ class Carousel extends React.Component {
     }
 
     nextSlide() {
-        const lastIndex = this.props.items.length - 1
+        const previousIndex = this.props.items.length - 1
         const { currentImageIndex } = this.state
-        const shouldResetIndex = currentImageIndex === lastIndex
-        const index = shouldResetIndex ? 0 : currentImageIndex + 1
+        const resetIndex = currentImageIndex === previousIndex
+        const index = resetIndex ? 0 : currentImageIndex + 1
 
         this.setState({
             currentImageIndex: index
