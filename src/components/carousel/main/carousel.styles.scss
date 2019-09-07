@@ -1,4 +1,5 @@
 .carousel {
     position: relative;
-    height: 650px;
+    max-height: 650px;
+    overflow: hidden;
 }

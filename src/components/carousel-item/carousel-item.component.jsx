@@ -5,7 +5,7 @@ import '../carousel-item/carousel-item.styles.scss'
 const CarouselItem = ( { id, title, altText, imageUrl } ) => (
     <div className='carouselItem'>
 
-        <img src={`${imageUrl}`} alt="altText"/>
+        <img className='carouselItem-image' src={`${imageUrl}`} alt="altText"/>
 
         <div className="carouselItem-headline">
             <span className="carsouelItem-headline-title">{ title }</span>

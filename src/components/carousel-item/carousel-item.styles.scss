@@ -1,17 +1,12 @@
 .carouselItem {
-    height: 800px;
-    width: 100%;
-    transition: background-image .3s ease-in-out;
+    max-height: 650px;
 }
 
-.carouselItem-image {
-    height: 100%;
-    background-repeat: no-repeat;
- }
+.carouselItem-image { }
 
  .carouselItem-headline {
-     position: absolute;
      width: 100%;
+     position: absolute;
      bottom: 0;
      padding: 50px;
      background-color: rgba(#e2e2e2, 0.15);
