@@ -6,7 +6,7 @@ const AboutPage = () => (
     <div className="container is-Desktop">
         <div className="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
             <div className="column is-square">
-                <img src="https://i.ibb.co/2Kx4Gz7/xparnie.jpg" alt="A picture of Andrew Kari #me" />
+                <img src="https://i.ibb.co/2Kx4Gz7/xparnie.jpg" alt="Andrew Kari #me" />
             </div>
             <div className="column is-child">
                 <div className="content is-medium">
