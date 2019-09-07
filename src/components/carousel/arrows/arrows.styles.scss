@@ -1,0 +1,15 @@
+.carousel-arrow {
+    cursor: pointer;
+	color: grey;
+	font-size: 2rem;
+	position: absolute;
+	top: 50%;
+}
+
+.carousel-arrow.right {
+	right: 1rem;
+}
+
+.carousel-arrow.left {
+	left: 1rem;
+}

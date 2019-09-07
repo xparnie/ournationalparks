@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #000000;
+}
+
 a {
+  color: #000000;
   text-decoration: none;
+}
+
+a:active {
+  color: #eeeeee;
 }
