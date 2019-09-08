@@ -10,7 +10,7 @@ import Arrow from '../arrows/arrows.component'
 class Carousel extends React.Component {
     constructor(props) {
         super(props)
-        
+
         this.state = {
             currentImageIndex: 0
         }
@@ -51,6 +51,5 @@ class Carousel extends React.Component {
         )
     }
 }
-
 
 export default Carousel

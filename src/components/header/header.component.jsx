@@ -13,7 +13,7 @@ const Header = () => (
             <Link className='level-item' to='/'>
                 <h1 className="title">Our National Parks</h1>
             </Link>
-            <Link className='level-item' to='/deepDive'>
+            <Link className='level-item' to='/deep-dive'>
                 Deep Dive
             </Link>
         </nav>
