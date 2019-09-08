@@ -5,29 +5,30 @@ const IMAGE_DATA = [
         items: [
             {
                 title: 'Dummy Title 1',
-                imageUrl: 'https://i.ibb.co/RBbpBxJ/DSCF6005.jpg',
+                imageUrl: '../images/colortest-min.jpg',
                 id: 1
             },
             {
                 title: 'Dummy Title 2',
-                imageUrl: 'https://i.ibb.co/yB8VvtG/Death-Valley-3.jpg',
+                imageUrl: '../images/DSCF5969-min.jpg',
                 id: 2
             },
             {
                 title: 'Dummy Title 3',
-                imageUrl: 'https://i.ibb.co/XptTQvv/DSCF6440.jpg',
+                imageUrl: '../images/DSCF6005-min.jpg',
                 id: 3
             },
             {
                 title: 'Dummy Title 4',
-                imageUrl: 'https://i.ibb.co/n6jW5mg/colortest.jpg',
+                imageUrl: '../images/DSCF6440-min.jpg',
                 id: 4
             },
             {
                 title: 'Dummy Title 5',
-                imageUrl: 'https://i.ibb.co/XYg8WbF/HDR-Horseshoe-Bend.jpg',
+                imageUrl: '../images/horseshoe.jpg',
                 id: 5
             }
+            
         ]
     },
     {
@@ -36,12 +37,12 @@ const IMAGE_DATA = [
         items: [
             {
                 title: 'Dummy Title 1',
-                imageUrl: 'https://i.ibb.co/RBbpBxJ/DSCF6005.jpg',
+                imageUrl: '../images/DSCF6440-min.jpg',
                 id: 1
             },
             {
                 title: 'Dummy Title 2',
-                imageUrl: 'https://i.ibb.co/yB8VvtG/Death-Valley-3.jpg',
+                imageUrl: '../images/DSCF6440-min.jpg',
                 id: 2
             }
         ]
@@ -52,7 +53,7 @@ const IMAGE_DATA = [
         items: [
             {
                 title: 'Dummy Title 2',
-                imageUrl: 'https://i.ibb.co/yB8VvtG/Death-Valley-3.jpg',
+                imageUrl: '../images/DSCF6440-min.jpg',
                 id: 2
             }
         ]
