@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // import Header from '../../components/header/header.component'
 
@@ -9,8 +10,8 @@ import IMAGE_DATA from '../../data/image'
 import Carousel from '../../components/carousel/main/carousel.component'
 
 class HomePage extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
 
         this.state = {
             collections: IMAGE_DATA
@@ -31,3 +32,7 @@ class HomePage extends React.Component {
 }
 
 export default HomePage
+
+Carousel.propTypes = {
+    collections: PropTypes.object
+}

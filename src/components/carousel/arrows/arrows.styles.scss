@@ -1,11 +1,14 @@
 .carousel-arrow {
     cursor: pointer;
-	color: grey;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, .2);
+	padding: 20px;
 	font-size: 2rem;
 	position: absolute;
 	top: 50%;
 	line-height: 0;
+	z-index: 1;
 }
 
-.carousel-arrow_right { right: 1rem; }
-.carousel-arrow_left { left: 1rem; }
+.carousel-arrow_right { right: 0; }
+.carousel-arrow_left { left: 0; }
