@@ -6,12 +6,17 @@ import './header.styles.scss'
 
 const Header = () => (
     <div className='header'>
+        <div className="header-titles">
+            <Link className='header-title' to='/'>
+                <h1>Our National Parks</h1>
+            </Link>
+            <div className="header-subtitle">
+                <span className="header-subtitle">By: Andrew Kari</span>
+            </div>
+        </div>
         <nav className='level'>
             <Link className='level-item' to='/about'>
                 About
-            </Link>
-            <Link className='level-item' to='/'>
-                <h1 className="title">Our National Parks</h1>
             </Link>
             <Link className='level-item' to='/deep-dive'>
                 Deep Dive

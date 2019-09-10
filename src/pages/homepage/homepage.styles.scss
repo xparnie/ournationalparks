@@ -1,0 +1,79 @@
+.homepage {
+    margin: 0 auto;
+}
+
+.homepage-carousel {
+    margin-bottom: 75px;
+}
+
+@media (min-width: 551px) and (max-width: 1280px) {
+	.homepage-carousel {
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+    .homepage-carousel {
+        margin-bottom: 25px;
+    }
+  }
+
+.heroBlock {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 1025px) {
+    .heroBlock {
+        justify-content: space-around;
+        flex-direction: row;
+	}
+}
+
+.heroBlock_flip {
+    flex-direction: row-reverse;
+}
+
+.heroBlock > *:first-child {
+
+}
+
+.heroBlock > *:last-child {}
+
+.heroBlock + .heroBlock {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid grey;
+}
+
+.heroBlock-media {
+    max-width: 500px;
+}
+
+.heroBlock-content > * + * {
+    margin-top: 2vh;
+}
+
+.heroBlock-content-title {
+    color: #bbb;
+    font-size: 4vh;
+}
+
+.heroBlock-content-body {
+
+}
+
+.heroBlock-content-button {
+    display: inline-block;
+    padding: 1em 2.5em;
+    border: 0px solid #000;
+    background-color: #0f6402;
+    font-style: normal;
+    letter-spacing: .05em;
+    line-height: 1.1em;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: .2em;
+}

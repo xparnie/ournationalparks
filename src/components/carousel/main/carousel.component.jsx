@@ -9,16 +9,27 @@ class Carousel extends React.Component {
         super()
 
         this.state = {
-            currentImageIndex: 0
+            currentImageIndex: 1
         }
 
         this.onSlideClick = this.onSlideClick.bind(this)
+    }
+
+    componentDidMount() {
+        const slides = document.querySelectorAll('.carousel-item')
+        slides.forEach(el => el.style.zIndex = -1)
+        slides[0].style.zIndex = null
     }
 
     onSlideClick(direction) {
         const previousIndex = this.props.items.length - 1
         const { currentImageIndex } = this.state
         let index = undefined
+
+        const slides = document.querySelectorAll('.carousel-item')
+        
+        slides.forEach(el => el.style.zIndex = -1)
+        slides[currentImageIndex].style.zIndex = 1
 
         if (direction === 'left') {
             const resetIndex = currentImageIndex === 0
@@ -35,15 +46,11 @@ class Carousel extends React.Component {
 
     render() {
 
-        const { currentImageIndex } = this.state
-
         return (
-            <div className='carousel'>
-
+            <div className='carousel' >
+            
                 <Arrow className='arrow previous' direction="left" clickFunction={() => this.onSlideClick('left')} glyph="&#xf053;" />
-
                 {this.props.items
-                    .filter(({ id }) => (id - 1) === currentImageIndex)
                     .map(({ id, imageUrl, altText, title, subTitle }) =>
                         (<div key={id} className='carousel-item'>
                             <img className='carousel-item-image' src={`${imageUrl}`} alt={`${altText}`} />
@@ -54,7 +61,7 @@ class Carousel extends React.Component {
                             </div>
                         </div>))}
 
-                <Arrow className='arrow next' direction="right" clickFunction={this.onSlideClick.bind(this, currentImageIndex)} glyph="&#xf054;" />
+                <Arrow className='arrow next' direction="right" clickFunction={this.onSlideClick} glyph="&#xf054;" />
 
             </div>
         )

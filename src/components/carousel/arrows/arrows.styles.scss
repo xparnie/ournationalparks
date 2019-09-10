@@ -5,10 +5,23 @@
 	padding: 20px;
 	font-size: 2rem;
 	position: absolute;
-	top: 50%;
+	top: 25vw;
 	line-height: 0;
-	z-index: 1;
+	z-index: 2;
 }
+
+@media (min-width: 1281px) {  
+	.carousel-arrow {
+		top: 20vw;
+	}
+}
+  
+@media (min-width: 1025px) and (max-width: 1280px) {
+	.carousel-arrow {
+		top: 16vw;
+	}
+}
+  
 
 .carousel-arrow_right { right: 0; }
 .carousel-arrow_left { left: 0; }

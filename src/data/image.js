@@ -1,34 +1,75 @@
 const IMAGE_DATA = [
     {
         id: 1,
-        title: 'National Parks',
+        title: 'NationalParks',
         items: [
             {
-                title: 'Dummy Title 1',
-                imageUrl: '../images/colortest-min.jpg',
+                title: 'Wading Bison',
+                subTitle: 'Yellowstone National Park',
+                imageUrl: '../images/wading-buffalo.jpg',
+                altTest: 'This is altText',
                 id: 1
             },
             {
-                title: 'Dummy Title 2',
-                imageUrl: '../images/DSCF5969-min.jpg',
+                title: 'Blame it on the tetons',
+                subTitle: 'Grand Teton National Park',
+                imageUrl: '../images/blame-it-on-the-tetons.jpg',
                 id: 2
             },
             {
-                title: 'Dummy Title 3',
-                imageUrl: '../images/DSCF6005-min.jpg',
+                title: 'Wild Mustang',
+                subTitle: 'Theodore Roosevelt National Park',
+                imageUrl: '../images/wild-mustang.jpg',
                 id: 3
             },
             {
-                title: 'Dummy Title 4',
-                imageUrl: '../images/DSCF6440-min.jpg',
+                title: 'The Illusive Moose',
+                subTitle: 'Grand Teton National Park',
+                imageUrl: '../images/the-illusive-moose.jpg',
                 id: 4
             },
             {
-                title: 'Dummy Title 5',
-                imageUrl: '../images/horseshoe.jpg',
+                title: 'Sunset over Artist\'s Pallet',
+                subTitle: 'Death Valley National Park',
+                imageUrl: '../images/sunset-over-artists-pallet.jpg',
                 id: 5
+            },
+            {
+                title: 'Man vs Beast',
+                subTitle: 'Near Deadhorse Alaksa',
+                imageUrl: '../images/man-vs-beast.jpg',
+                id: 6
+            },
+            {
+                title: 'Caribou in the mist',
+                subTitle: 'Dalton Highway, Alaska',
+                imageUrl: '../images/AEK00174.jpg',
+                id: 7
+            },
+            {
+                title: 'South Kaibab Trail',
+                subTitle: 'Grand Canyon National Park',
+                imageUrl: '../images/south-kaibab-trail.jpg',
+                id: 9
+            },
+            {
+                title: 'Petrified Wood',
+                subTitle: 'Petrified Forest National Park',
+                imageUrl: '../images/petrified-wood.jpg',
+                id: 10
+            },
+            {
+                title: 'Jenny Lake',
+                subTitle: 'Grand Teton National Park',
+                imageUrl: '../images/jenny-lake.jpg',
+                id: 13
+            },
+            {
+                title: 'The ever generic',
+                subTitle: 'Horsebend, AZ',
+                imageUrl: '../images/horseshoe.jpg',
+                id: 14
             }
-            
         ]
     },
     {

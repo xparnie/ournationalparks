@@ -1,0 +1,19 @@
+.aboutPage {
+    padding: 0 10vw;
+}
+
+.aboutPage-content { }
+
+.aboutPage-content > * + * {
+    margin-top: 2vh;
+}
+
+.aboutPage-content-title {
+    color: green;
+    font-size: 4vh;
+    font-family: 'Dancing Script', cursive;
+}
+
+.aboutPage-content-body {
+    font-size: 2vh;
+}
