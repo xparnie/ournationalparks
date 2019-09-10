@@ -13,6 +13,7 @@ import DeepDivePage from './pages/deep-dive/deep-dive.component'
  * Global Components
  */
 import Header from './components/header/header.component'
+import Footer from './components/footer/footer.component'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/about' component={ AboutPage } />
           <Route path='/deep-dive' component={ DeepDivePage } />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   )

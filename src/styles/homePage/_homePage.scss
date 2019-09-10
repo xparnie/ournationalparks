@@ -1,0 +1,19 @@
+.homepage {
+    margin: 0 auto;
+}
+
+.homepage-carousel {
+    margin-bottom: 10vw;
+}
+
+@media (min-width: 551px) and (max-width: 1280px) {
+	.homepage-carousel {
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+    .homepage-carousel {
+        margin-bottom: 25px;
+    }
+  }

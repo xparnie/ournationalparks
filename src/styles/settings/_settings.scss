@@ -1,0 +1,27 @@
+.settings {
+    margin-bottom: 20px;
+}
+
+    .settings-title {
+        margin-bottom: 10px;
+    }
+
+        .settings-title-text {
+            color: #aaa;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+    .settings-list { 
+        padding-left: 10px;
+    }
+
+    .settings-list-item + .settings-list-item {
+        margin-top: 15px;
+    }
+
+        .settings-list-item-text {
+            color: #aaa;
+            font-size: 15px;
+            font-style: italic;
+        }

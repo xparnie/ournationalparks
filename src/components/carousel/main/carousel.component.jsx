@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import '../main/carousel.styles.scss'
+import '../../../styles/carousel/_carousel.scss'
 import Arrow from '../arrows/arrows.component'
 
 class Carousel extends React.Component {
@@ -19,6 +19,10 @@ class Carousel extends React.Component {
         const slides = document.querySelectorAll('.carousel-item')
         slides.forEach(el => el.style.zIndex = -1)
         slides[0].style.zIndex = null
+
+        const getHeight = document.querySelector('.carousel').getBoundingClientRect().width
+
+        document.querySelector('.carousel').style.height = (getHeight / 1.45) + "px";
     }
 
     onSlideClick(direction) {
@@ -28,8 +32,11 @@ class Carousel extends React.Component {
 
         const slides = document.querySelectorAll('.carousel-item')
         
+        // Resets z-index of carousel items and brings currentImage to front
         slides.forEach(el => el.style.zIndex = -1)
         slides[currentImageIndex].style.zIndex = 1
+
+        
 
         if (direction === 'left') {
             const resetIndex = currentImageIndex === 0

@@ -1,6 +1,8 @@
 import React from 'react'
 
-import './deep-dive.styles.scss'
+import '../../styles/deepDive/_deepDive.scss'
+import '../../styles/post/_post.scss'
+import '../../styles/settings/_settings.scss'
 
 class DeepDivePage extends React.Component {
     constructor() {
@@ -15,7 +17,13 @@ class DeepDivePage extends React.Component {
                 <div className="deepDivePage">
                     <section className="post">
                         <div className="post-img">
-                            <img src="" alt="" />
+                            <div className="post-img-overlay">
+                                <div className="post-img-overlay-content">
+                                    <span className="post-img-overlay-heading">Story Behind</span>
+                                    <span className="post-img-overlay-body">Wild Mustang</span>
+                                </div>
+                            </div>
+                            <img src="../images/wild-mustang.jpg" alt="Wild Mustang in Theodore Roosevelt National Park" />
                         </div>
                         <div className="post-heading">
                             <div className="post-heading-title">
@@ -69,7 +77,13 @@ class DeepDivePage extends React.Component {
                     </section>
                     <section className="post">
                         <div className="post-img">
-                            <img src="" alt="" />
+                            <div className="post-img-overlay">
+                                <div className="post-img-overlay-content">
+                                    <span className="post-img-overlay-heading">Story Behind</span>
+                                    <span className="post-img-overlay-body">Wading Buffalo</span>
+                                </div>
+                            </div>
+                            <img src="../images/wading-buffalo.jpg" alt="Buffalo Wading through the waters of Yellowstone National Park" />
                         </div>
                         <div className="post-heading">
                             <div className="post-heading-title">

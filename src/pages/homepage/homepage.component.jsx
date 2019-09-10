@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 // import Header from '../../components/header/header.component'
 
-import './homepage.styles.scss'
+import '../../styles/homePage/_homePage.scss'
+import '../../styles/heroBlock/_heroBlock.scss'
 
 import IMAGE_DATA from '../../data/image'
 
@@ -45,19 +46,18 @@ class HomePage extends React.Component {
                         </div>
                     </div>
 
-                    <div className="heroBlock heroBlock_flip">
-                        <div className="heroBlock-media">
-                            <img src="../images/between-the-joshua-trees.jpg" alt="Moon between branches of Joshua Tree" />
-                        </div>
+                    <div className="heroBlock">
                         <div className="heroBlock-content">
                             <h1 className="heroBlock-content-title">Learn About the Pictures</h1>
                             <Link className='heroBlock-content-button' to='/deep-dive'>
                                 Deep Dive
                             </Link>
                         </div>
+                        <div className="heroBlock-media">
+                            <img src="../images/between-the-joshua-trees.jpg" alt="Moon between branches of Joshua Tree" />
+                        </div>
                     </div>
                 </div>
-
             </div>
         )
     }

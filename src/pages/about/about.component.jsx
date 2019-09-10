@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './about.styles.scss'
+import '../../styles/aboutPage/_aboutPage.scss'
 
 const AboutPage = () => (
     <div className="container">

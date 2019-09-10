@@ -1,0 +1,76 @@
+/**
+* Carousel Object
+*/
+
+.carousel {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn { 0% { opacity: 0; } 90% { opacity: 0 } 100% { opacity: 1; } }
+
+@media (min-width: 1281px) {
+    .carousel { max-width: 1200px; }
+}
+
+.carousel-item {
+    position: absolute;
+}
+
+.carousel-item-image {
+    display: block;
+    position: relative;
+    animation: imageTransition 2s;
+}
+
+.carousel-item-headline {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 20px 50px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 1025px) {
+    .carousel-item-headline {
+        padding: 50px;
+    }
+}
+
+.carousel-item-headline-title {
+    display: block;
+    font-size: 1.25rem;
+    color: white;
+    font-weight: bold;
+}
+
+.carousel-item-headline-subtitle {
+    display: block;
+    font-size: 1rem;
+    color: #e2e2e2;
+    font-weight: bold;
+    line-height: 2;
+}
+
+.carousel-arrow {
+    cursor: pointer;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, .2);
+	padding: 20px;
+	font-size: 2rem;
+	position: absolute;
+	top: 25vw;
+	line-height: 0;
+	z-index: 2;
+}
+
+@media (min-width: 1281px) {  
+	.carousel-arrow {
+		top: 30vw;
+	}
+}
+  
+.carousel-arrow_right { right: 0; }
+.carousel-arrow_left { left: 0; }
