@@ -14,7 +14,6 @@ const Carousel = ({ items }) => {
         slides.forEach(el => el.style.zIndex = -1)
         slides[0].style.zIndex = null
 
-        // Rather gross, but kinda works?
         const getHeight = document.querySelector('.carousel').getBoundingClientRect().width
         document.querySelector('.carousel').style.height = (getHeight / 1.45) + "px";
     }, [])
