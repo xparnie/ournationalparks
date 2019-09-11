@@ -7,6 +7,18 @@ import '../../styles/contact/_contact.scss'
 
 const ContactPage = () => {
 
+    /**
+     * DOM Elements
+     */
+    const nameInput = document.querySelector('.name-input-error')
+    const emailInput = document.querySelector('.email-input-error')
+    const phoneInput = document.querySelector('.phone-input-error')
+    const submitButton = document.querySelector('.submit-content-button')
+
+
+    /**
+     * Setting Hooks
+     */
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -24,17 +36,22 @@ const ContactPage = () => {
 
     const { nameError, emailError, phoneError } = formError
 
+
+    /**
+     * Handles Input Change Events
+     */
     const handleChange = (e) => {
         const { value, name } = e.target;
         setForm({ ...form, [name]: value })
     }
 
+    /**
+     * Handles Form Submit Event
+     */
     const handleSumbit = (e) => {
         e.preventDefault()
 
-        console.log(nameError, emailError, phoneError)
-
-        if(nameError.length || emailError.length || phoneError.length) { return alert('Please fill out form correctly') }
+        if (nameError.length || emailError.length || phoneError.length) { return alert('Please fill out form correctly') }
 
         firebaseConfig.database().ref('our-national-parks').set({
             name: name,
@@ -48,10 +65,10 @@ const ContactPage = () => {
         successDOM.style.display = 'block';
 
         // Hide alert after 3 seconds
-        setTimeout(function(){
-          successDOM.style.display = 'none';
-        },3000);
-      
+        setTimeout(function () {
+            successDOM.style.display = 'none';
+        }, 3000);
+
         document.getElementById('contactForm').reset()
     }
 
@@ -59,34 +76,25 @@ const ContactPage = () => {
         // Desctructuring
         const { value, name } = e.target;
 
-        /**
-         * DOM Elements
-         */
-        const nameInput = document.querySelector('.name-input-error')
-        const emailInput = document.querySelector('.email-input-error')
-        const phoneInput = document.querySelector('.phone-input-error')
-        const submitButton = document.querySelector('.submit-content-button')
-
         let check
 
-        switch(name) {
+        switch (name) {
             case 'name':
-                console.log(value.length < 3)
                 check = value.length < 3 ? 'Name must be longer than 3 characters' : ''
                 !check.length ? nameInput.classList.remove('active') : nameInput.classList.add('active')
-            break;
+                break;
             case 'email':
                 const validEmailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
                 check = (!validEmailRegex.test(value)) ? 'Email must be in valid form' : ''
                 !check.length ? emailInput.classList.remove('active') : emailInput.classList.add('active')
-            break;
+                break;
             case 'phone':
                 const validPhoneRegex = RegExp(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/)
 
                 check = (!validPhoneRegex.test(value)) ? 'Phone must be in valid form 123-123-1213' : ''
                 !check.length ? phoneInput.classList.remove('active') : phoneInput.classList.add('active')
-            break;
+                break;
             default:
                 break;
         }
