@@ -1,15 +1,14 @@
-.post {
-    margin: 20px 0;
-    padding: 20px;
-}
+.post { }
 
 .post + .post {
-    border-top: 1px solid grey;
+    border-top: 1px solid #ACA9A2;
+    margin-top: 5vw;
+    padding-top: 5vw;
 }
 
 .post-img {
     position: relative;
-    margin: 5vw 0;
+    margin: 0 0 3vw;
     box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
     border: 3px solid #0f6402;
 }
@@ -45,13 +44,14 @@
 }
 
 .post-heading-title {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .post-heading-title-text {
-    font-size: 24px;
+    font-size: 42px;
     font-weight: 400;
-    color: #CDCDCD;
+    color: #0f6402;
+    font-family: 'Dancing Script', cursive;
 }
 
 .post-heading-date {
@@ -72,5 +72,5 @@
 .post-article-heading-text {
     font-size: 24px;
     font-weight: 400;
-    color: #CDCDCD;
+    color: #0f6402;
 }

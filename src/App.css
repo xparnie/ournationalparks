@@ -1,5 +1,5 @@
 html {
-  background-color: #FCFFFC;
+  background-color: rgba(172,169,162, 0.05);
 }
 
 * {
@@ -15,10 +15,10 @@ body {
 }
 
 a {
-  color: #000000;
+  color: #385424;
   text-decoration: none;
 }
 
 a:active {
-  color: #eeeeee;
+  color: rgba(56,84,36, 0.8);
 }

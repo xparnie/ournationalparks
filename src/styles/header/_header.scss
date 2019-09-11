@@ -4,24 +4,40 @@
 }
 
 .header-titles {
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
     text-align: center;
 }
 
 .header-title {
     cursor: pointer;
-    color: green;
-    font-size: 4vh;
+}
+
+.header-title-text {
+    color: #0f6402;
+    font-size: 2rem;
     font-family: 'Comfortaa', cursive;
 
     &:hover {
-        color: darkgreen;
+        color: rgba(15, 100, 2, .90);
     }
 }
 
 .header-subtitle {
     display: block;
-    color: grey;
-    font-size: 2vh;
+    color: #ACA9A2;
+    font-size: 1.2rem;
     font-family: 'Dancing Script', cursive;
+}
+
+.header-link {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #385424;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400;
+
+    &:hover {
+        color: #ACA9A2;
+    }
 }

@@ -7,6 +7,7 @@ import './App.css'
 // Pages
 import HomePage from './pages/homepage/homepage.component'
 import AboutPage from './pages/about/about.component'
+import ContactPage from './pages/contact/contact.component'
 import DeepDivePage from './pages/deep-dive/deep-dive.component'
 
 /**
@@ -23,6 +24,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={ HomePage } />
           <Route path='/about' component={ AboutPage } />
+          <Route path='/contact' component={ ContactPage } />
           <Route path='/deep-dive' component={ DeepDivePage } />
         </Switch>
         <Footer />

@@ -33,10 +33,10 @@ class Carousel extends React.Component {
         const slides = document.querySelectorAll('.carousel-item')
         
         // Resets z-index of carousel items and brings currentImage to front
-        slides.forEach(el => el.style.zIndex = -1)
-        slides[currentImageIndex].style.zIndex = 1
+        slides.forEach(el => el.style.opacity = 0)
+        slides[currentImageIndex].style.opacity = 1
 
-        
+
 
         if (direction === 'left') {
             const resetIndex = currentImageIndex === 0

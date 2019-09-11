@@ -124,8 +124,10 @@ class DeepDivePage extends React.Component {
                                     <p>It was a rather bright, sun-shinin’ day out. I normally like to shoot for the sky, but wasn’t really thinking at the time. When I say that I mean that I drop the exposure in order to get the sky in detail. Camera’s these days are able to gather detail even in the low light areas, but if you get the sky too bright you end up squandering all that detail. It is a hard thing to think about when shooting wildlife though. You don’t know what the animal is doing or where you need to be exactly to get the shot.</p>
 
                                     <p>I do all of my editing in Lightroom. In the shot, since the lighting in the wild is something you can’t control, the sky is slightly blown out and the bison is hidden in the shadows. Luckily, it’s rather simple to change that. As long as you have the right angle, you can usually recover in post.</p>
-
-                                    <img src="" alt="" />
+                                    
+                                    <div className="post-img">
+                                        <img src="../images/original-wading-buffalo.jpg" alt="original wading buffalo" />
+                                    </div>
 
                                     <p>The optimal shot would have been to tell the bison to stop in the middle of the stream, get my tripod, and take an HDR shot (exposure: +2, 0, -2), but that’s really not in the cards. To gather all the detail of the sky, middle, and foreground.</p>
 
