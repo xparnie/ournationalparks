@@ -15,7 +15,6 @@ const ContactPage = () => {
     const phoneInput = document.querySelector('.phone-input-error')
     const submitButton = document.querySelector('.submit-content-button')
 
-
     /**
      * Setting Hooks
      */
@@ -35,7 +34,6 @@ const ContactPage = () => {
     })
 
     const { nameError, emailError, phoneError } = formError
-
 
     /**
      * Handles Input Change Events

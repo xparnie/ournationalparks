@@ -5,13 +5,15 @@ import '../../../styles/carousel/_carousel.scss'
 import Arrow from '../arrows/arrows.component'
 
 const Carousel = ({ items }) => {
+
+    // Hook
     const [currentImageIndex, setCurrentImageIndex] = useState(1)
-    
+
     useEffect(() => {
         const slides = document.querySelectorAll('.carousel-item')
         slides.forEach(el => el.style.zIndex = -1)
         slides[0].style.zIndex = null
-        
+
         // Rather gross, but kinda works?
         const getHeight = document.querySelector('.carousel').getBoundingClientRect().width
         document.querySelector('.carousel').style.height = (getHeight / 1.45) + "px";
@@ -20,7 +22,8 @@ const Carousel = ({ items }) => {
     const onSlideClick = (direction) => {
         const previousIndex = items.length - 1
         let index
-        
+
+        // DOM ELements
         const slides = document.querySelectorAll('.carousel-item')
         slides.forEach(el => el.style.zIndex = 0)
         slides[currentImageIndex].style.zIndex = 1
