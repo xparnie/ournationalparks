@@ -6,24 +6,35 @@ import PropTypes from 'prop-types'
 import '../../styles/contact/_contact.scss'
 
 const ContactPage = () => {
-    const [name, setName] = useState('')
-    const [nameError, setNameError] = useState('')
 
-    const [email, setEmail] = useState('')
-    const [emailError, setEmailError] = useState('')
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    })
 
-    const [phone, setPhone] = useState('')
-    const [phoneError, setPhoneError] = useState('')
-    
-    const [message, setMessage] = useState('')
+    const { name, email, phone, message } = form
+
+    const [formError, setFormError] = useState({
+        nameError: '',
+        emailError: '',
+        phoneError: ''
+    })
+
+    const { nameError, emailError, phoneError } = formError
+
+    const handleChange = (e) => {
+        const { value, name } = e.target;
+        setForm({ ...form, [name]: value })
+    }
 
     const handleSumbit = (e) => {
         e.preventDefault()
 
-        if(nameError || emailError || phoneError) {
-            console.log(nameError, emailError, phoneError, 'No soup')
-            return
-        }
+        console.log(nameError, emailError, phoneError)
+
+        if(nameError.length || emailError.length || phoneError.length) { return alert('Please fill out form correctly') }
 
         firebaseConfig.database().ref('our-national-parks').set({
             name: name,
@@ -32,55 +43,88 @@ const ContactPage = () => {
             message: message
         })
 
+        const successDOM = document.querySelector('.contactForm-field-success')
+
+        successDOM.style.display = 'block';
+
+        // Hide alert after 3 seconds
+        setTimeout(function(){
+          successDOM.style.display = 'none';
+        },3000);
+      
         document.getElementById('contactForm').reset()
     }
 
-    const validateName = (e) => {
-        const check = e.target.value.length < 3 ? 'Name must be longer than 3 characters' : ''
+    const validate = (e) => {
+        // Desctructuring
+        const { value, name } = e.target;
 
-        setNameError(check)
-    }
+        /**
+         * DOM Elements
+         */
+        const nameInput = document.querySelector('.name-input-error')
+        const emailInput = document.querySelector('.email-input-error')
+        const phoneInput = document.querySelector('.phone-input-error')
+        const submitButton = document.querySelector('.submit-content-button')
 
-    const validateEmail = (e) => {
-        const validEmailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        let check
 
-        const check = (!validEmailRegex.test(e.target.value)) ? 'Email must be in valid form' : ''
+        switch(name) {
+            case 'name':
+                console.log(value.length < 3)
+                check = value.length < 3 ? 'Name must be longer than 3 characters' : ''
+                !check.length ? nameInput.classList.remove('active') : nameInput.classList.add('active')
+            break;
+            case 'email':
+                const validEmailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
-        setEmailError(check)
-    }
+                check = (!validEmailRegex.test(value)) ? 'Email must be in valid form' : ''
+                !check.length ? emailInput.classList.remove('active') : emailInput.classList.add('active')
+            break;
+            case 'phone':
+                const validPhoneRegex = RegExp(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/)
 
-    const validatePhone = (e) => {
-        const validPhoneRegex = RegExp(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/)
+                check = (!validPhoneRegex.test(value)) ? 'Phone must be in valid form 123-123-1213' : ''
+                !check.length ? phoneInput.classList.remove('active') : phoneInput.classList.add('active')
+            break;
+            default:
+                break;
+        }
 
-        const check = (!validPhoneRegex.test(e.target.value)) ? 'Phone must be in valid form 123-123-1213' : ''
+        setFormError({ ...formError, [name + 'Error']: check })
 
-        setPhoneError(check)
+        nameError || emailError || phoneError ? submitButton.disabled = false : submitButton.disabled = true
     }
 
     return (
         <div className='container'>
-            <h1 className='title'>Contact Form</h1>
             <div className='contact'>
                 <form id='contactForm' onSubmit={handleSumbit}>
-                    <div className='name-field'>
-                        <label>Name <span>*</span></label>
-                        <input htmlFor='name' type='text' name='name' id='name' value={name} onBlur={validateName} onChange={e => setName(e.target.value)} required />
+                    <h1 className='contactForm-title'>Contact Me</h1>
+                    <div className='contactForm-field'>
+                        <label className='contactForm-field-label'>Name <span>*</span></label>
+                        <input className="contactForm-field-input" htmlFor='name' type='text' name='name' id='name' value={name} onBlur={validate} onChange={handleChange} required />
+                        <span className="name-input-error error">Name must be longer than 3 characters</span>
                     </div>
-                    <div className='email-field'>
-                        <label>Email <span>*</span></label>
-                        <input htmlFor='email' type='email' name='email' id='email' onBlur={validateEmail} value={email} onChange={e => setEmail(e.target.value)} required />
+                    <div className='contactForm-field'>
+                        <label className='contactForm-field-label'>Email <span>*</span></label>
+                        <input className="contactForm-field-input" htmlFor='email' type='email' name='email' id='email' onBlur={validate} value={email} onChange={handleChange} required />
+                        <span className="email-input-error error">Email must be in valid form</span>
                     </div>
-                    <div className='phone-field'>
-                        <label>Phone</label>
-                        <input htmlFor='phone' type='text' name='phone' id='phone' onBlur={validatePhone} value={phone} onChange={e => setPhone(e.target.value)} />
+                    <div className='contactForm-field'>
+                        <label className='contactForm-field-label'>Phone</label>
+                        <input className="contactForm-field-input" htmlFor='phone' type='text' name='phone' id='phone' onBlur={validate} value={phone} onChange={handleChange} />
+                        <span className="phone-input-error error">Phone must be in valid form 123-123-1213</span>
                     </div>
-                    <div className='message-field'>
-                        <label>Message</label>
-                        <textarea htmlFor='message' name='message' rows='5' id='message' value={message} onChange={e => setMessage(e.target.value)}></textarea>
+                    <div className='contactForm-field'>
+                        <label className='contactForm-field-label'>Message</label>
+                        <textarea className="contactForm-field-input" htmlFor='message' name='message' rows='5' id='message' value={message} onChange={handleChange}></textarea>
                     </div>
-                    <div className='required-field'>Required field <span>*</span></div>
-                    <div className='submit-button'>
-                        <button type='submit'>Submit</button>
+                    <div className='contactForm-field'>
+                        <div className='submit-content'>
+                            <button className='submit-content-button' type='submit' disabled>Submit</button>
+                        </div>
+                        <div className="contactForm-field-success">Your message has been sent, Cheers!</div>
                     </div>
                 </form>
             </div>
@@ -92,7 +136,10 @@ export default ContactPage
 
 ContactPage.propTypes = {
     name: PropTypes.string,
+    nameError: PropTypes.string,
     email: PropTypes.string,
+    emailError: PropTypes.string,
     phone: PropTypes.string,
+    phoneError: PropTypes.string,
     message: PropTypes.string
 }

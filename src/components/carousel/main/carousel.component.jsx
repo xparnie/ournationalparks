@@ -1,42 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import '../../../styles/carousel/_carousel.scss'
 import Arrow from '../arrows/arrows.component'
 
-class Carousel extends React.Component {
-    constructor() {
-        super()
-
-        this.state = {
-            currentImageIndex: 1
-        }
-
-        this.onSlideClick = this.onSlideClick.bind(this)
-    }
-
-    componentDidMount() {
+const Carousel = ({ items }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(1)
+    
+    useEffect(() => {
         const slides = document.querySelectorAll('.carousel-item')
         slides.forEach(el => el.style.zIndex = -1)
         slides[0].style.zIndex = null
-
-        const getHeight = document.querySelector('.carousel').getBoundingClientRect().width
-
-        document.querySelector('.carousel').style.height = (getHeight / 1.45) + "px";
-    }
-
-    onSlideClick(direction) {
-        const previousIndex = this.props.items.length - 1
-        const { currentImageIndex } = this.state
-        let index = undefined
-
-        const slides = document.querySelectorAll('.carousel-item')
         
-        // Resets z-index of carousel items and brings currentImage to front
-        slides.forEach(el => el.style.opacity = 0)
-        slides[currentImageIndex].style.opacity = 1
+        // Rather gross, but kinda works?
+        const getHeight = document.querySelector('.carousel').getBoundingClientRect().width
+        document.querySelector('.carousel').style.height = (getHeight / 1.45) + "px";
+    }, [])
 
-
+    const onSlideClick = (direction) => {
+        const previousIndex = items.length - 1
+        let index
+        
+        const slides = document.querySelectorAll('.carousel-item')
+        slides.forEach(el => el.style.zIndex = 0)
+        slides[currentImageIndex].style.zIndex = 1
 
         if (direction === 'left') {
             const resetIndex = currentImageIndex === 0
@@ -46,33 +33,24 @@ class Carousel extends React.Component {
             index = resetIndex ? 0 : currentImageIndex + 1
         }
 
-        this.setState({
-            currentImageIndex: index
-        })
+        setCurrentImageIndex(index)
     }
 
-    render() {
+    return (
+        <div className='carousel'>
+            <Arrow className='arrow previous' direction="left" clickFunction={() => onSlideClick('left')} glyph="&#xf053;" />
+            {items.map(({ id, imageUrl, altText, title, subTitle }) =>
+                (<div key={id} className='carousel-item'>
+                    <img className='carousel-item-image' src={`${imageUrl}`} alt={`${altText}`} />
 
-        return (
-            <div className='carousel' >
-            
-                <Arrow className='arrow previous' direction="left" clickFunction={() => this.onSlideClick('left')} glyph="&#xf053;" />
-                {this.props.items
-                    .map(({ id, imageUrl, altText, title, subTitle }) =>
-                        (<div key={id} className='carousel-item'>
-                            <img className='carousel-item-image' src={`${imageUrl}`} alt={`${altText}`} />
-
-                            <div className="carousel-item-headline">
-                                <span className="carousel-item-headline-title">{title}</span>
-                                <span className="carousel-item-headline-subtitle">{subTitle}</span>
-                            </div>
-                        </div>))}
-
-                <Arrow className='arrow next' direction="right" clickFunction={this.onSlideClick} glyph="&#xf054;" />
-
-            </div>
-        )
-    }
+                    <div className="carousel-item-headline">
+                        <span className="carousel-item-headline-title">{title}</span>
+                        <span className="carousel-item-headline-subtitle">{subTitle}</span>
+                    </div>
+                </div>))}
+            <Arrow className='arrow next' direction="right" clickFunction={onSlideClick} glyph="&#xf054;" />
+        </div>
+    )
 }
 
 export default Carousel

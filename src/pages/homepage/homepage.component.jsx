@@ -2,15 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-// import Header from '../../components/header/header.component'
-
 import '../../styles/homePage/_homePage.scss'
 import '../../styles/heroBlock/_heroBlock.scss'
 
 import IMAGE_DATA from '../../data/image'
 
 import Carousel from '../../components/carousel/main/carousel.component'
-
 class HomePage extends React.Component {
     constructor() {
         super()
@@ -25,7 +22,6 @@ class HomePage extends React.Component {
 
         return (
             <div className="homepage">
-
                 <div className="homepage-carousel">
                     {collections.filter((collection) => collection.title === 'NationalParks').map(({ id, ...otherCollectionProps }) => (
                         <Carousel key={id} {...otherCollectionProps} />
