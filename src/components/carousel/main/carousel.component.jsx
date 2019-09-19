@@ -5,12 +5,15 @@ import '../../../styles/carousel/_carousel.scss'
 import Arrow from '../arrows/arrows.component'
 
 const Carousel = ({ items }) => {
+    const [totalCarouselItems, setTotalCarouselItems] = useState(0)
     const [currentImageIndex, setCurrentImageIndex] = useState(1)
+    const [previousImageIndex, setPreviousImageIndex] = useState(0)
     const [currentHeight, setCurrentHeight] = useState(0)
     
     const slides = document.querySelectorAll('.carousel-item')
 
     useEffect(() => {
+        setTotalCarouselItems(items.length - 1)
         setHeightHandler()
     }, [])
 
@@ -24,20 +27,21 @@ const Carousel = ({ items }) => {
     }
 
     const onSlideClick = (direction) => {
-        const previousIndex = items.length - 1
         let index = null
 
         // DOM ELements
+        slides[previousImageIndex].style.zIndex = -1
         slides[currentImageIndex].style.zIndex = 1
-
+        
         if (direction === 'left') {
             const resetIndex = currentImageIndex === 0
-            index = resetIndex ? previousIndex : currentImageIndex - 1
+            index = resetIndex ? totalCarouselItems : currentImageIndex - 1
         } else {
-            const resetIndex = currentImageIndex === previousIndex
+            const resetIndex = currentImageIndex === totalCarouselItems
             index = resetIndex ? 0 : currentImageIndex + 1
         }
-
+        
+        setPreviousImageIndex(currentImageIndex)
         setCurrentImageIndex(index)
     }
 
@@ -60,4 +64,7 @@ const Carousel = ({ items }) => {
 
 export default Carousel
 
-Carousel.propTypes = { currentImageIndex: PropTypes.number }
+Carousel.propTypes = { 
+    currentImageIndex: PropTypes.number, 
+    currentHeight: PropTypes.number
+}
