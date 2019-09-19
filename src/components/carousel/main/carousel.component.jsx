@@ -16,9 +16,8 @@ const Carousel = ({ items }) => {
         slides[0].style.zIndex = null
 
         setHeightHandler()
-    })
+    }, [])
 
-    
     useLayoutEffect(() => {
         window.addEventListener('resize', setHeightHandler)
     }, [currentHeight])
@@ -31,8 +30,6 @@ const Carousel = ({ items }) => {
     const onSlideClick = (direction) => {
         const previousIndex = items.length - 1
         let index
-
-        console.log(direction)
 
         // DOM ELements
         const slides = document.querySelectorAll('.carousel-item')
