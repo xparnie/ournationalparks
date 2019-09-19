@@ -5,11 +5,14 @@ import '../../../styles/carousel/_carousel.scss'
 import Arrow from '../arrows/arrows.component'
 
 const Carousel = ({ items }) => {
+    
+    // Hooks
     const [totalCarouselItems, setTotalCarouselItems] = useState(0)
     const [currentImageIndex, setCurrentImageIndex] = useState(1)
     const [previousImageIndex, setPreviousImageIndex] = useState(0)
     const [currentHeight, setCurrentHeight] = useState(0)
     
+    // DOM Elements
     const slides = document.querySelectorAll('.carousel-item')
 
     useEffect(() => {
@@ -27,11 +30,12 @@ const Carousel = ({ items }) => {
     }
 
     const onSlideClick = (direction) => {
-        let index = null
+        slideShowHideHandler()
+        slideIndexHandler(direction)
+    }
 
-        // DOM ELements
-        slides[previousImageIndex].style.zIndex = -1
-        slides[currentImageIndex].style.zIndex = 1
+    const slideIndexHandler = (direction) => {
+        let index = null
         
         if (direction === 'left') {
             const resetIndex = currentImageIndex === 0
@@ -43,6 +47,11 @@ const Carousel = ({ items }) => {
         
         setPreviousImageIndex(currentImageIndex)
         setCurrentImageIndex(index)
+    }
+
+    const slideShowHideHandler = () => {
+        slides[previousImageIndex].style.zIndex = -1
+        slides[currentImageIndex].style.zIndex = 1
     }
 
     return (
