@@ -22,7 +22,7 @@ const Carousel = ({ items }) => {
     }, [currentHeight])
 
     const setHeightHandler = () => {
-        const height = document.querySelector('.carousel').getBoundingClientRect().width / 1.45
+        const height = document.querySelector('.carousel').getBoundingClientRect().width / 1.5
         setCurrentHeight(height)
     }
 
