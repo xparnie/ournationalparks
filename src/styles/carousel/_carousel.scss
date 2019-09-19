@@ -17,6 +17,11 @@
 
 .carousel-item {
     position: absolute;
+    z-index: -1;
+}
+
+.carousel-item:first-child {
+    z-index: 1;
 }
 
 .carousel-item-image {
