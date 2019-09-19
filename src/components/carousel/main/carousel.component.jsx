@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import '../../../styles/carousel/_carousel.scss'
@@ -8,20 +8,31 @@ const Carousel = ({ items }) => {
 
     // Hook
     const [currentImageIndex, setCurrentImageIndex] = useState(1)
+    const [currentHeight, setCurrentHeight] = useState(0)
 
     useEffect(() => {
         const slides = document.querySelectorAll('.carousel-item')
         slides.forEach(el => el.style.zIndex = -1)
         slides[0].style.zIndex = null
 
-        // Rather gross, but kinda works?
-        const getHeight = document.querySelector('.carousel').getBoundingClientRect().width
-        document.querySelector('.carousel').style.height = (getHeight / 1.45) + "px";
-    }, [])
+        setHeightHandler()
+    })
+
+    
+    useLayoutEffect(() => {
+        window.addEventListener('resize', setHeightHandler)
+    }, [currentHeight])
+    
+    const setHeightHandler = () => {
+        const height = document.querySelector('.carousel').getBoundingClientRect().width / 1.45
+        setCurrentHeight(height)
+    }
 
     const onSlideClick = (direction) => {
         const previousIndex = items.length - 1
         let index
+
+        console.log(direction)
 
         // DOM ELements
         const slides = document.querySelectorAll('.carousel-item')
@@ -40,14 +51,14 @@ const Carousel = ({ items }) => {
     }
 
     return (
-        <div className='carousel'>
+        <div className='carousel' style={{height: `${currentHeight}` + 'px'}}>
             <Arrow className='arrow previous' direction="left" clickFunction={() => onSlideClick('left')} glyph="&#xf053;" />
             {items.map(({ id, imageUrl, altText, title, subTitle }) =>
                 (<div key={id} className='carousel-item'>
                     <img className='carousel-item-image' src={`${imageUrl}`} alt={`${altText}`} />
 
                     <div className="carousel-item-headline">
-                        <span className="carousel-item-headline-title">{title}</span>
+                        <span className="carousel-item-headline-title">{ title }</span>
                         <span className="carousel-item-headline-subtitle">{subTitle}</span>
                     </div>
                 </div>))}

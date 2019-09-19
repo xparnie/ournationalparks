@@ -63,7 +63,7 @@ const ContactPage = () => {
         successDOM.style.display = 'block';
 
         // Hide alert after 3 seconds
-        setTimeout(function () {
+        setTimeout(() => {
             successDOM.style.display = 'none';
         }, 3000);
 
