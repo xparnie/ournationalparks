@@ -6,10 +6,7 @@
     position: relative;
     margin: auto;
     overflow: hidden;
-    animation: fadeIn 2s;
 }
-
-@keyframes fadeIn { 0% { opacity: 0; } 90% { opacity: 0 } 100% { opacity: 1; } }
 
 @media (min-width: 1281px) {
     .carousel { max-width: 1200px; }
@@ -27,12 +24,6 @@
 .carousel-item-image {
     display: block;
     position: relative;
-    animation: imageTransition 2s;
-}
-
-@keyframes imageTransition {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 .carousel-item-headline {
