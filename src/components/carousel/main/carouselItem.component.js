@@ -1,24 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-const CarouselItem = () => {
+const CarouselItem = ({ id, imageUrl, altText, title, subTitle }) => {
 
-
-
+    const imageLoad = e => {
+        e.target.style.opacity = 1;
+    };
 
     return (
-        <li 
-            ref={slide}
-            key={id} 
-            className='carousel-item'
-        >
-            <img className='carousel-item-image' src={`${imageUrl}`} alt={`${altText}`} />
+        <li key={id} className='carousel-list-item'>
+            <img className='carousel-list-item-image' onLoad={ imageLoad } src={`${ imageUrl }`} alt={`${ altText }`} />
 
-            <div className='carousel-item-headline'>
-                <span className='carousel-item-headline-title'>{title}</span>
-                <span className='carousel-item-headline-subtitle'>{subTitle}</span>
+            <div className='carousel-list-item-headline'>
+                <span className='carousel-list-item-headline-title'>{title}</span>
+                <span className='carousel-list-item-headline-subtitle'>{subTitle}</span>
             </div>
         </li>
-    )
-}
+    );
+};
 
-export default CarouselItem
+export default CarouselItem;

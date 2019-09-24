@@ -1,24 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import '../../styles/homePage/_homePage.scss'
-import '../../styles/heroBlock/_heroBlock.scss'
+import '../../styles/homePage/_homePage.scss';
+import '../../styles/heroBlock/_heroBlock.scss';
 
-import IMAGE_DATA from '../../data/image'
+import IMAGE_DATA from '../../data/image';
 
-import Carousel from '../../components/carousel/main/carousel.component'
+import Carousel from '../../components/carousel/main/carousel.component';
 class HomePage extends React.Component {
     constructor() {
-        super()
+        super();
 
         this.state = {
             collections: IMAGE_DATA
-        }
-    }
+        };
+    };
 
     render() {
-        const { collections } = this.state
+        const { collections } = this.state;
 
         return (
             <div className="homepage">
@@ -55,12 +55,12 @@ class HomePage extends React.Component {
                     </div>
                 </div>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
-export default HomePage
+export default HomePage;
 
 Carousel.propTypes = {
     collections: PropTypes.object
-}
+};
