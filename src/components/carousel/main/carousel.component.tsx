@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 
 import "../../../styles/carousel/_carousel.scss";
 
@@ -7,21 +7,22 @@ import CarouselItem from "./carouselItem.component";
 
 type CarouselProps = {
   items: (number | string | any)[];
+  onSlideClickHandler: () => void;
 };
 
 const Carsouel = ({ items }: CarouselProps) => {
-  const [totalCarouselItems, setTotalCarouselItems] = React.useState<number>(0);
-  const [currentImageIndex, setCurrentImageIndex] = React.useState<number>(0);
+  const [totalCarouselItems, setTotalCarouselItems] = useState<number>(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   const slideTransform: any = {
     transform: `translateX(-${currentImageIndex * (100 / totalCarouselItems)}%)`
   };
 
-  React.useEffect(() => {
+  useEffect((): void => {
     setTotalCarouselItems(items.length);
   }, [items.length]);
 
-  const onSlideClickHandler = (direction: string): void => {
+  const onSlideClickHandler = (direction: string) => {
     let index: number = 0;
 
     const zeroBaseTotalCarouselItems: number = totalCarouselItems - 1;

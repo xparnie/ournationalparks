@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 type CarouselItemProps = {
   id: number;
@@ -14,21 +14,19 @@ const CarouselItem = ({
   altText,
   title,
   subTitle
-}: CarouselItemProps) => {
-  return (
-    <li key={id} className="carousel-list-item">
-      <img
-        className="carousel-list-item-image"
-        src={`${imageUrl}`}
-        alt={`${altText}`}
-      />
+}: CarouselItemProps) => (
+  <li key={id} className="carousel-list-item">
+    <img
+      className="carousel-list-item-image"
+      src={`${imageUrl}`}
+      alt={`${altText}`}
+    />
 
-      <div className="carousel-list-item-headline">
-        <span className="carousel-list-item-headline-title">{title}</span>
-        <span className="carousel-list-item-headline-subtitle">{subTitle}</span>
-      </div>
-    </li>
-  );
-};
+    <div className="carousel-list-item-headline">
+      <span className="carousel-list-item-headline-title">{title}</span>
+      <span className="carousel-list-item-headline-subtitle">{subTitle}</span>
+    </div>
+  </li>
+);
 
 export default CarouselItem;
