@@ -1,9 +1,9 @@
 import * as React from "react";
 
-interface ArrowProps {
+type ArrowProps = {
   direction: string;
-  clickFunction: any;
-}
+  clickFunction: () => void;
+};
 
 const Arrow = ({ direction, clickFunction }: ArrowProps) => (
   <div

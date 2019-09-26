@@ -1,12 +1,12 @@
 import * as React from "react";
 
-interface CarouselItemProps {
+type CarouselItemProps = {
   id: number;
   imageUrl: string;
   altText?: string;
   title: string;
   subTitle: string;
-}
+};
 
 const CarouselItem = ({
   id,

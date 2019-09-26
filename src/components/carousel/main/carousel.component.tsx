@@ -5,9 +5,9 @@ import "../../../styles/carousel/_carousel.scss";
 import Arrow from "../arrows/arrows.component";
 import CarouselItem from "./carouselItem.component";
 
-interface CarouselProps {
+type CarouselProps = {
   items: (number | string | any)[];
-}
+};
 
 const Carsouel = ({ items }: CarouselProps) => {
   const [totalCarouselItems, setTotalCarouselItems] = React.useState<number>(0);
@@ -48,7 +48,7 @@ const Carsouel = ({ items }: CarouselProps) => {
           <CarouselItem key={id} {...otherProps} />
         ))}
       </ul>
-      <Arrow direction="right" clickFunction={onSlideClickHandler} />
+      <Arrow direction="right" clickFunction={() => onSlideClickHandler} />
       <Arrow
         direction="left"
         clickFunction={() => onSlideClickHandler("left")}
