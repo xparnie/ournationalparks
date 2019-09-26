@@ -16,7 +16,7 @@ const CarouselListItemImage = styled.img`
   position: relative;
 `
 
-const CarouselListItemHeadline = styled.div`
+const CarouselListItemHeadlineWrapper = styled.div`
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -28,7 +28,7 @@ const CarouselListItemHeadline = styled.div`
   }
 `
 
-const CarouselListItemTitle = styled.span`
+const CarouselListItemTitleText = styled.span`
   display: block;
   font-size: 3vw;
   color: white;
@@ -36,7 +36,7 @@ const CarouselListItemTitle = styled.span`
   font-family: 'Dancing Script', cursive;
 `
 
-const CarouselListItemSubtitle = styled.span`
+const CarouselListItemSubtitleText = styled.span`
   display: block;
   font-size: 1.25vw;
   color: #ffffff;
@@ -61,10 +61,10 @@ const CarouselListItem = ({
 }: CarouselListItemProps) => (
   <CarouselListItemWrapper key={id}>
     <CarouselListItemImage src={`${imageUrl}`} alt={`${altText}`} />
-    <CarouselListItemHeadline>
-      <CarouselListItemTitle>{title}</CarouselListItemTitle>
-      <CarouselListItemSubtitle>{subTitle}</CarouselListItemSubtitle>
-    </CarouselListItemHeadline>
+    <CarouselListItemHeadlineWrapper>
+      <CarouselListItemTitleText>{title}</CarouselListItemTitleText>
+      <CarouselListItemSubtitleText>{subTitle}</CarouselListItemSubtitleText>
+    </CarouselListItemHeadlineWrapper>
   </CarouselListItemWrapper>
 )
 
