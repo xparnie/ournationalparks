@@ -48,7 +48,10 @@ const Carsouel = ({ items }: CarouselProps) => {
           <CarouselItem key={id} {...otherProps} />
         ))}
       </ul>
-      <Arrow direction="right" clickFunction={() => onSlideClickHandler} />
+      <Arrow
+        direction="right"
+        clickFunction={() => onSlideClickHandler("right")}
+      />
       <Arrow
         direction="left"
         clickFunction={() => onSlideClickHandler("left")}
