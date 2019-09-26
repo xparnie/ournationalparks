@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from 'react'
 
-import '../../../styles/carousel/_carousel.scss'
+import styled from 'styled-components'
 
 import Arrow from '../arrows/arrows.component'
-import CarouselItem from './carousel-item.component'
+import CarouselListItem from './carousel-item.component'
+
+const CarouselWrapper = styled.div`
+  --slide-size: 95vmin;
+  --slide-margin: 4vmin;
+  height: calc(var(--slide-size) / 1.5);
+  width: var(--slide-size);
+  position: relative;
+  margin: 0 auto;
+`
+
+const CarouselListWrapper = styled.ul`
+  display: flex;
+  margin: 0 calc(var(--slide-margin) * -1);
+  position: absolute;
+  transition: transform 600ms cubic-bezier(0.25, 1, 0.35, 1);
+`
 
 type CarouselProps = {
   items: (number | string | any)[]
@@ -23,6 +39,10 @@ const Carsouel = ({ items }: CarouselProps) => {
   }, [items.length])
 
   const onSlideClickHandler = (direction: string) => {
+    indexManager(direction)
+  }
+
+  const indexManager = (direction: string) => {
     let index: number = 0
 
     const zeroBaseTotalCarouselItems: number = totalCarouselItems - 1
@@ -43,21 +63,21 @@ const Carsouel = ({ items }: CarouselProps) => {
   }
 
   return (
-    <div className="carousel">
-      <ul className="carousel-list" style={slideTransform}>
-        {items.map(({ id, ...otherProps }) => (
-          <CarouselItem key={id} {...otherProps} />
-        ))}
-      </ul>
-      <Arrow
-        direction="right"
-        clickFunction={() => onSlideClickHandler('right')}
-      />
+    <CarouselWrapper>
       <Arrow
         direction="left"
         clickFunction={() => onSlideClickHandler('left')}
       />
-    </div>
+      <CarouselListWrapper style={slideTransform}>
+        {items.map(({ id, ...otherProps }) => (
+          <CarouselListItem key={id} {...otherProps} />
+        ))}
+      </CarouselListWrapper>
+      <Arrow
+        direction="right"
+        clickFunction={() => onSlideClickHandler('right')}
+      />
+    </CarouselWrapper>
   )
 }
 
