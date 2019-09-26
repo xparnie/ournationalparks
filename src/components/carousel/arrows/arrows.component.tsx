@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 type ArrowProps = {
-  direction: string;
-  clickFunction: () => void;
-};
+  direction: string
+  clickFunction: () => void
+}
 
 const Arrow = ({ direction, clickFunction }: ArrowProps) => (
   <div
@@ -12,6 +12,6 @@ const Arrow = ({ direction, clickFunction }: ArrowProps) => (
   >
     <i className={`fas fa-chevron-${direction}`}></i>
   </div>
-);
+)
 
-export default Arrow;
+export default Arrow

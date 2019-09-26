@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 
 type CarouselItemProps = {
-  id: number;
-  imageUrl: string;
-  altText?: string;
-  title: string;
-  subTitle: string;
-};
+  id: number
+  imageUrl: string
+  altText?: string
+  title: string
+  subTitle: string
+}
 
 const CarouselItem = ({
   id,
@@ -27,6 +27,6 @@ const CarouselItem = ({
       <span className="carousel-list-item-headline-subtitle">{subTitle}</span>
     </div>
   </li>
-);
+)
 
-export default CarouselItem;
+export default CarouselItem
