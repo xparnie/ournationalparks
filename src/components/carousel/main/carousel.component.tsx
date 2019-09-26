@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../../../styles/carousel/_carousel.scss";
 
 import Arrow from "../arrows/arrows.component";
-import CarouselItem from "./carouselItem.component";
+import CarouselItem from "./carousel-item.component";
 
 type CarouselProps = {
   items: (number | string | any)[];
