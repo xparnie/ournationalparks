@@ -48,16 +48,12 @@ const Carousel = ({ items }) => {
         ))}
       </ul>
       <Arrow
-        className="arrow next"
         direction="right"
         clickFunction={onSlideClickHandler}
-        glyph="&#xf054;"
       />
       <Arrow
-        className="arrow previous"
         direction="left"
         clickFunction={() => onSlideClickHandler("left")}
-        glyph="&#xf053;"
       />
     </div>
   );

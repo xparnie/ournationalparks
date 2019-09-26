@@ -5,7 +5,7 @@ interface ArrowProps {
   clickFunction: any;
 }
 
-const Arrow: React.FC<ArrowProps> = ({ direction, clickFunction }) => (
+const Arrow = ({ direction, clickFunction }: ArrowProps) => (
   <div
     className={`carousel-arrow carousel-arrow_${direction}`}
     onClick={clickFunction}

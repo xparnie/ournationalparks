@@ -9,7 +9,7 @@ interface CarouselProps {
   items: (number | string | any)[];
 }
 
-const Carsouel: React.FC<CarouselProps> = ({ items }) => {
+const Carsouel = ({ items }: CarouselProps) => {
   const [totalCarouselItems, setTotalCarouselItems] = React.useState<number>(0);
   const [currentImageIndex, setCurrentImageIndex] = React.useState<number>(0);
 

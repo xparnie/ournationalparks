@@ -8,13 +8,13 @@ interface CarouselItemProps {
   subTitle: string;
 }
 
-const CarouselItem: React.FunctionComponent<CarouselItemProps> = ({
+const CarouselItem = ({
   id,
   imageUrl,
   altText,
   title,
   subTitle
-}) => {
+}: CarouselItemProps) => {
   return (
     <li key={id} className="carousel-list-item">
       <img
